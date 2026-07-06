@@ -8,3 +8,6 @@
 .env.*.local
 .DS_Store
 *.tsbuildinfo
+
+# deploy-local (VPS-specific subnet pin)
+docker-compose.override.yml
