@@ -14,25 +14,32 @@ async function run() {
   const userRepo = dataSource.getRepository(User);
   const categoryRepo = dataSource.getRepository(Category);
 
-  // ── Admin ──
+  // ── Admin (upsert: always re-sync password/name/role from env) ──
   const email = process.env.SEED_ADMIN_EMAIL ?? 'admin@yuandewatatimur.com';
+  const name = process.env.SEED_ADMIN_NAME ?? 'Super Admin';
+  const passwordHash = await bcrypt.hash(
+    process.env.SEED_ADMIN_PASSWORD ?? 'Admin123!',
+    10,
+  );
   const existing = await userRepo.findOne({ where: { email } });
   if (!existing) {
-    const passwordHash = await bcrypt.hash(
-      process.env.SEED_ADMIN_PASSWORD ?? 'Admin123!',
-      10,
-    );
     await userRepo.save(
       userRepo.create({
         email,
-        name: process.env.SEED_ADMIN_NAME ?? 'Super Admin',
+        name,
         password_hash: passwordHash,
         role: UserRole.SUPER_ADMIN,
       }),
     );
     console.log(`✓ Seeded admin: ${email}`);
   } else {
-    console.log(`• Admin already exists: ${email}`);
+    // Re-sync credentials so changing SEED_ADMIN_PASSWORD in .env takes effect.
+    existing.name = name;
+    existing.password_hash = passwordHash;
+    existing.role = UserRole.SUPER_ADMIN;
+    existing.refresh_token_hash = null; // invalidate old sessions
+    await userRepo.save(existing);
+    console.log(`✓ Re-synced admin credentials: ${email}`);
   }
 
   // ── Categories ──
