@@ -48,6 +48,8 @@ export interface AdminProductRow {
   price: string;
   badge: string | null;
   status: 'Published' | 'Draft';
+  /** Main photo (first gallery image / sort_order 0) for the admin table. */
+  image_url: string | null;
 }
 
 /** One existing product image, exposed to the admin edit form so old photos
@@ -160,7 +162,9 @@ export class ProductsService {
     const qb = this.repo
       .createQueryBuilder('p')
       .leftJoinAndSelect('p.category', 'category')
-      .orderBy('p.created_at', 'DESC');
+      .leftJoinAndSelect('p.images', 'images')
+      .orderBy('p.created_at', 'DESC')
+      .addOrderBy('images.sort_order', 'ASC');
 
     if (query.category) {
       qb.andWhere('(category.slug = :cat OR category.name = :cat)', {
@@ -396,6 +400,7 @@ export class ProductsService {
       price: product.price,
       badge: badgeToJson(product.badge),
       status: product.is_published ? 'Published' : 'Draft',
+      image_url: this.sortedImageUrls(product)[0] ?? null,
     };
   }
 
