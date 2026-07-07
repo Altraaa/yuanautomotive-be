@@ -14,9 +14,14 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { BulkDeleteDto } from '../../common/dto/bulk-delete.dto';
+import {
+  AuthenticatedUser,
+  CurrentUser,
+} from '../../common/decorators/current-user.decorator';
 import { Public } from '../../common/decorators/public.decorator';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../common/enums';
+import { OptionalJwtAuthGuard } from '../../common/guards/optional-jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
 import { ProductQueryDto } from './dto/product-query.dto';
@@ -27,11 +32,19 @@ import { ProductsService } from './products.service';
 export class ProductsController {
   constructor(private readonly products: ProductsService) {}
 
-  // ── PUBLIC ────────────────────────────────────────
+  // ── PUBLIC + ADMIN (same path, shape depends on auth) ─
   @Public()
+  @UseGuards(OptionalJwtAuthGuard)
   @Get()
-  list(@Query() query: ProductQueryDto) {
-    return this.products.listPublic(query);
+  list(
+    @Query() query: ProductQueryDto,
+    @CurrentUser() user?: AuthenticatedUser,
+  ) {
+    // Authenticated admins get the manage-table rows (incl. drafts); anonymous
+    // visitors get published product cards.
+    return user
+      ? this.products.adminList(query)
+      : this.products.listPublic(query);
   }
 
   @Public()
@@ -54,8 +67,11 @@ export class ProductsController {
   @UseGuards(RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
   @Post()
-  create(@Body() dto: CreateProductDto) {
-    return this.products.create(dto);
+  create(
+    @Body() dto: CreateProductDto,
+    @CurrentUser('uuid') authorUuid: string,
+  ) {
+    return this.products.create(dto, authorUuid);
   }
 
   @ApiBearerAuth()
@@ -73,8 +89,9 @@ export class ProductsController {
   update(
     @Param('uuid', new ParseUUIDPipe({ version: '4' })) uuid: string,
     @Body() dto: UpdateProductDto,
+    @CurrentUser('uuid') authorUuid: string,
   ) {
-    return this.products.update(uuid, dto);
+    return this.products.update(uuid, dto, authorUuid);
   }
 
   @ApiBearerAuth()

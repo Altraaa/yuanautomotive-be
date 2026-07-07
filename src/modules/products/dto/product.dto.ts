@@ -1,7 +1,6 @@
 import { ApiProperty, ApiPropertyOptional, PartialType } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import {
-  ArrayNotEmpty,
   IsArray,
   IsBoolean,
   IsEnum,
@@ -16,6 +15,19 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { ProductBadge } from '../../../common/enums';
+
+/**
+ * FE sends grouped rupiah strings ("8.450.000") or numbers; strip everything but
+ * digits so the value is a clean numeric string before validation (BACKEND-GUIDE §5.2).
+ */
+const digitsOnly = ({ value }: { value: unknown }): unknown => {
+  if (typeof value === 'number') return String(value);
+  if (typeof value === 'string') {
+    const cleaned = value.replace(/[^\d]/g, '');
+    return cleaned.length ? cleaned : undefined;
+  }
+  return value;
+};
 
 export class ProductSpecDto {
   @ApiProperty({ example: 'Daya Output' })
@@ -44,13 +56,47 @@ export class CreateProductDto {
   @MaxLength(191)
   name: string;
 
+  @ApiProperty({ example: 'YD-CHG-7K2', description: 'Unique stock code' })
+  @IsString()
+  @MinLength(2)
+  @MaxLength(64)
+  sku: string;
+
+  @ApiPropertyOptional({
+    description: 'URL slug — auto-generated from name when empty',
+  })
+  @IsOptional()
+  @IsString()
+  @MaxLength(191)
+  slug?: string;
+
   @ApiProperty({ format: 'uuid' })
   @IsUUID('4')
   category_id: string;
 
-  @ApiProperty({ example: '8450000', description: 'Price as a string' })
+  @ApiProperty({ example: '8450000', description: 'Retail price as a string' })
+  @Transform(digitsOnly)
   @IsNumberString()
   price: string;
+
+  @ApiPropertyOptional({
+    example: '7900000',
+    description: 'Wholesale price as a string (admin only)',
+  })
+  @IsOptional()
+  @Transform(digitsOnly)
+  @IsNumberString()
+  price_wholesale?: string;
+
+  @ApiPropertyOptional({ default: 0, description: 'On-hand units' })
+  @IsOptional()
+  @Transform(({ value }) => {
+    const digits = String(value ?? '').replace(/[^\d]/g, '');
+    return digits.length ? Number(digits) : undefined;
+  })
+  @IsInt()
+  @Min(0)
+  stock?: number;
 
   @ApiPropertyOptional({ enum: ProductBadge })
   @IsOptional()
@@ -73,11 +119,15 @@ export class CreateProductDto {
   @Type(() => ProductSpecDto)
   specs: ProductSpecDto[];
 
-  @ApiProperty({ type: [String], format: 'uuid', description: 'Media UUIDs (first = thumbnail)' })
+  @ApiPropertyOptional({
+    type: [String],
+    format: 'uuid',
+    description: 'Media UUIDs from two-step upload (first = thumbnail)',
+  })
+  @IsOptional()
   @IsArray()
-  @ArrayNotEmpty()
   @IsUUID('4', { each: true })
-  image_uuids: string[];
+  image_uuids?: string[];
 
   @ApiPropertyOptional({ default: false })
   @IsOptional()

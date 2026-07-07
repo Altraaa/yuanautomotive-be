@@ -3,6 +3,7 @@ import { SoftDeletableEntity } from '../../../common/entities/base.entity';
 import { ProductBadge } from '../../../common/enums';
 import { Category } from '../../categories/entities/category.entity';
 import { Media } from '../../media/entities/media.entity';
+import { User } from '../../users/entities/user.entity';
 
 /** Ordered spec row stored inside the `specs` JSON column (no separate table). */
 export interface ProductSpec {
@@ -17,12 +18,35 @@ export class Product extends SoftDeletableEntity {
   @Column({ type: 'varchar', length: 191 })
   slug: string;
 
+  /** Internal stock code shown in admin only (unique). */
+  @Index('IDX_products_sku', { unique: true })
+  @Column({ type: 'varchar', length: 64 })
+  sku: string;
+
   @Column({ type: 'varchar', length: 191 })
   name: string;
 
   /** decimal → mysql2 returns a string, matching the FE contract (price string). */
   @Column({ type: 'decimal', precision: 12, scale: 2 })
   price: string;
+
+  /** Grosir price — admin only, nullable. String like `price`. */
+  @Column({
+    name: 'price_wholesale',
+    type: 'decimal',
+    precision: 12,
+    scale: 2,
+    nullable: true,
+  })
+  price_wholesale: string | null;
+
+  /** On-hand units — admin only. */
+  @Column({ type: 'int', unsigned: true, default: 0 })
+  stock: number;
+
+  /** Public detail view counter — feeds the admin "Dilihat" stat. */
+  @Column({ name: 'view_count', type: 'int', unsigned: true, default: 0 })
+  view_count: number;
 
   @Column({ type: 'enum', enum: ProductBadge, nullable: true })
   badge: ProductBadge | null;
@@ -54,6 +78,15 @@ export class Product extends SoftDeletableEntity {
 
   @Column({ name: 'category_id', type: 'bigint', unsigned: true })
   category_id: string;
+
+  /** User who last created/updated this product → detail "Oleh". */
+  @Index('IDX_products_author')
+  @ManyToOne(() => User, { nullable: true, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'author_id' })
+  author: User | null;
+
+  @Column({ name: 'author_id', type: 'bigint', unsigned: true, nullable: true })
+  author_id: string | null;
 
   @OneToMany(() => Media, (media) => media.product)
   images: Media[];
