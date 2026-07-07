@@ -50,6 +50,13 @@ export interface AdminProductRow {
   status: 'Published' | 'Draft';
 }
 
+/** One existing product image, exposed to the admin edit form so old photos
+ *  can be previewed as deletable thumbnails and kept/dropped by uuid on save. */
+export interface GalleryMediaItem {
+  uuid: string;
+  url: string;
+}
+
 /** Rich admin detail (BACKEND-GUIDE §5.2 → AdminProductDetail). */
 export interface AdminProductDetail {
   id: string;
@@ -68,6 +75,9 @@ export interface AdminProductDetail {
   specs: { label: string; value: string }[];
   compatibility: string[];
   gallery: string[];
+  /** Same images as `gallery`, but each carries its media uuid so the edit
+   *  form can render deletable thumbnails and re-send the kept uuids on save. */
+  gallery_media: GalleryMediaItem[];
   view_count: number;
   lead_count: number;
   preorder_count: number;
@@ -331,11 +341,21 @@ export class ProductsService {
     return Number(raw?.count ?? 0);
   }
 
-  private sortedImageUrls(product: Product): string[] {
+  private sortedImages(product: Product) {
     return (product.images ?? [])
       .slice()
-      .sort((a, b) => a.sort_order - b.sort_order)
-      .map((m) => m.url);
+      .sort((a, b) => a.sort_order - b.sort_order);
+  }
+
+  private sortedImageUrls(product: Product): string[] {
+    return this.sortedImages(product).map((m) => m.url);
+  }
+
+  private sortedGalleryMedia(product: Product): GalleryMediaItem[] {
+    return this.sortedImages(product).map((m) => ({
+      uuid: m.uuid,
+      url: m.url,
+    }));
   }
 
   private mapSpecs(product: Product) {
@@ -399,6 +419,7 @@ export class ProductsService {
       specs: this.mapSpecs(product),
       compatibility: product.compatibility ?? [],
       gallery: this.sortedImageUrls(product),
+      gallery_media: this.sortedGalleryMedia(product),
       view_count: product.view_count,
       lead_count: 0,
       preorder_count,
