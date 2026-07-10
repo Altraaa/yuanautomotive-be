@@ -18,6 +18,7 @@ import { ContactsModule } from './modules/contacts/contacts.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HealthModule } from './modules/health/health.module';
 import { MediaModule } from './modules/media/media.module';
+import { NewsModule } from './modules/news/news.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { ProductsModule } from './modules/products/products.module';
@@ -76,6 +77,7 @@ import { UsersModule } from './modules/users/users.module';
     CategoriesModule,
     ProductsModule,
     BlogModule,
+    NewsModule,
     ContactsModule,
     OrdersModule,
     MediaModule,

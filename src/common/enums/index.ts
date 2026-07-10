@@ -28,6 +28,12 @@ export enum BlogCategory {
   BERITA = 'BERITA',
 }
 
+/** DB tokens are UPPER; FE JSON expects Capitalized ("Reels", "Poster"). */
+export enum NewsType {
+  REELS = 'REELS',
+  POSTER = 'POSTER',
+}
+
 export enum ContactStatus {
   NEW = 'NEW',
   CONTACTED = 'CONTACTED',
