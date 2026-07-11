@@ -29,7 +29,12 @@ export interface ProductCard {
   category: string;
   price: string;
   image_url: string | null;
+  /** Manual promo badge (HOT / TERLARIS / PRE-ORDER). The "BARU" badge is
+   *  derived on the FE from `created_at` recency — see toCard(). */
   badge: string | null;
+  /** ISO timestamp so the FE can flag recently-added products as "BARU"
+   *  (mirrors the News module's date-based "Baru" rule). */
+  created_at: string;
 }
 
 export interface ProductDetail extends ProductCard {
@@ -378,6 +383,7 @@ export class ProductsService {
       price: product.price,
       image_url: urls[0] ?? null,
       badge: badgeToJson(product.badge),
+      created_at: product.created_at.toISOString(),
     };
   }
 
