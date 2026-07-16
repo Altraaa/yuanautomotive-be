@@ -16,6 +16,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { CmsModule } from './modules/cms/cms.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { FaqsModule } from './modules/faqs/faqs.module';
 import { HealthModule } from './modules/health/health.module';
 import { MediaModule } from './modules/media/media.module';
 import { NewsModule } from './modules/news/news.module';
@@ -78,6 +79,7 @@ import { UsersModule } from './modules/users/users.module';
     ProductsModule,
     BlogModule,
     NewsModule,
+    FaqsModule,
     ContactsModule,
     OrdersModule,
     MediaModule,

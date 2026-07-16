@@ -4,8 +4,21 @@ import dataSource from '../data-source';
 import { User } from '../../modules/users/entities/user.entity';
 import { Category } from '../../modules/categories/entities/category.entity';
 import { Product } from '../../modules/products/entities/product.entity';
+import { Faq } from '../../modules/faqs/entities/faq.entity';
 import { ProductBadge, UserRole } from '../../common/enums';
 import { toSlug, uniqueSlug } from '../../common/utils/slug.util';
+import faqSeed from './faqs.json';
+
+/** FAQ seed row (mirrors the CreateFaqDto shape). */
+interface SeedFaq {
+  question: string;
+  answer: string;
+  category: string | null;
+  sort_order: number;
+  is_published: boolean;
+}
+
+const SEED_FAQS: SeedFaq[] = faqSeed as SeedFaq[];
 
 /** Seed catalogue — no images (admin uploads them later). */
 interface SeedProduct {
@@ -340,6 +353,25 @@ async function run() {
       }),
     );
     console.log(`✓ Seeded product: ${p.name}`);
+  }
+
+  // ── FAQs (idempotent by question, sourced from faqs.json) ──
+  const faqRepo = dataSource.getRepository(Faq);
+  for (const f of SEED_FAQS) {
+    if (await faqRepo.findOne({ where: { question: f.question } })) {
+      console.log(`• FAQ already exists: ${f.question}`);
+      continue;
+    }
+    await faqRepo.save(
+      faqRepo.create({
+        question: f.question,
+        answer: f.answer,
+        category: f.category ?? null,
+        sort_order: f.sort_order ?? 0,
+        is_published: f.is_published ?? true,
+      }),
+    );
+    console.log(`✓ Seeded FAQ: ${f.question}`);
   }
 
   await dataSource.destroy();

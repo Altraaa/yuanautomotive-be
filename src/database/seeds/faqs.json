@@ -1,0 +1,114 @@
+[
+  {
+    "question": "Apa saja yang dijual oleh Yuan Dewata Automotive?",
+    "answer": "Kami menyediakan spare part, body parts, dan aksesoris untuk mobil Cina serta kendaraan listrik (EV). Mulai dari komponen mesin, kaki-kaki, kelistrikan, hingga perlengkapan charging dan interior — semuanya dengan spesifikasi teknis yang lengkap.",
+    "category": "Umum",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Di mana lokasi toko Yuan Dewata Automotive?",
+    "answer": "Kami berlokasi di Sanur, Denpasar Selatan, Bali. Anda bisa datang langsung ke toko kami atau menghubungi tim kami melalui WhatsApp untuk konsultasi produk sebelum berkunjung.",
+    "category": "Umum",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Apakah produk yang dijual original?",
+    "answer": "Ya. Kami mengutamakan produk original maupun aftermarket berkualitas dari pemasok terpercaya. Setiap produk dilengkapi spesifikasi teknis sehingga Anda bisa memastikan kecocokan sebelum membeli.",
+    "category": "Produk",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Bagaimana cara memastikan sparepart cocok dengan mobil saya?",
+    "answer": "Setiap produk mencantumkan daftar kompatibilitas kendaraan dan spesifikasi teknis. Jika masih ragu, kirimkan tipe, tahun, dan nomor rangka/mesin mobil Anda ke tim kami via WhatsApp — kami bantu cek kecocokannya.",
+    "category": "Produk",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Apakah tersedia sparepart untuk mobil listrik (EV)?",
+    "answer": "Tentu. Kami menyediakan komponen dan aksesoris khusus kendaraan listrik seperti charger portable, kabel charging Type 2, wall bracket, hingga sparepart pendukung untuk berbagai merek EV populer di Indonesia.",
+    "category": "Produk",
+    "sort_order": 2,
+    "is_published": true
+  },
+  {
+    "question": "Bagaimana cara melakukan pemesanan?",
+    "answer": "Pilih produk yang Anda inginkan di katalog kami, lalu klik tombol pemesanan atau hubungi kami langsung melalui WhatsApp. Tim kami akan membantu proses pemesanan, konfirmasi stok, dan pengiriman hingga selesai.",
+    "category": "Pembelian",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Apakah bisa membeli dengan harga grosir atau reseller?",
+    "answer": "Bisa. Kami melayani pembelian grosir untuk bengkel, dealer, dan reseller dengan harga khusus. Silakan hubungi tim kami melalui WhatsApp untuk mendapatkan penawaran harga grosir sesuai kebutuhan Anda.",
+    "category": "Pembelian",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Apakah bisa pre-order untuk produk yang stoknya kosong?",
+    "answer": "Bisa. Untuk produk tertentu yang sedang tidak tersedia, kami membuka sistem pre-order. Tim kami akan menginformasikan estimasi ketersediaan dan waktu tunggu sebelum Anda melakukan pemesanan.",
+    "category": "Pembelian",
+    "sort_order": 2,
+    "is_published": true
+  },
+  {
+    "question": "Metode pembayaran apa saja yang diterima?",
+    "answer": "Kami menerima pembayaran melalui transfer bank dan pembayaran langsung di toko. Detail rekening dan konfirmasi pembayaran akan diberikan oleh tim kami saat proses pemesanan berlangsung.",
+    "category": "Pembayaran",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Apakah harga produk sudah termasuk ongkos kirim?",
+    "answer": "Harga yang tertera adalah harga produk. Ongkos kirim dihitung terpisah berdasarkan tujuan dan berat/dimensi barang. Tim kami akan menginformasikan total biaya sebelum Anda menyelesaikan pembayaran.",
+    "category": "Pembayaran",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Apakah melayani pengiriman ke luar Bali?",
+    "answer": "Ya. Kami melayani pengiriman ke seluruh Indonesia melalui jasa ekspedisi tepercaya. Estimasi biaya dan lama pengiriman akan disesuaikan dengan alamat tujuan dan layanan ekspedisi yang dipilih.",
+    "category": "Pengiriman",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Berapa lama waktu pengiriman?",
+    "answer": "Untuk wilayah Bali, pengiriman umumnya 1–2 hari kerja. Untuk luar Bali, estimasi 2–5 hari kerja tergantung lokasi dan ekspedisi. Barang biasanya dikirim pada hari yang sama jika pembayaran dikonfirmasi sebelum jam operasional berakhir.",
+    "category": "Pengiriman",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Bagaimana cara melacak status pengiriman?",
+    "answer": "Setelah barang dikirim, kami akan memberikan nomor resi pengiriman melalui WhatsApp. Anda bisa memakai nomor resi tersebut untuk melacak posisi paket di situs ekspedisi yang bersangkutan.",
+    "category": "Pengiriman",
+    "sort_order": 2,
+    "is_published": true
+  },
+  {
+    "question": "Apakah produk bergaransi?",
+    "answer": "Sebagian besar produk kami bergaransi, dengan masa garansi yang bervariasi tergantung jenis barang (mulai dari 2 minggu hingga beberapa bulan). Informasi garansi tercantum pada spesifikasi masing-masing produk.",
+    "category": "Garansi",
+    "sort_order": 0,
+    "is_published": true
+  },
+  {
+    "question": "Bagaimana jika barang yang diterima rusak atau tidak sesuai?",
+    "answer": "Segera hubungi kami maksimal 1x24 jam setelah barang diterima, sertakan foto/video kondisi barang. Setelah kami verifikasi, kami akan bantu proses penggantian atau solusi terbaik sesuai kebijakan garansi.",
+    "category": "Garansi",
+    "sort_order": 1,
+    "is_published": true
+  },
+  {
+    "question": "Apakah bisa retur atau tukar barang?",
+    "answer": "Retur atau penukaran dapat dilakukan untuk kasus barang cacat produksi atau salah kirim, dengan syarat barang masih dalam kondisi asli dan belum dipasang. Hubungi tim kami untuk memulai proses retur.",
+    "category": "Garansi",
+    "sort_order": 2,
+    "is_published": true
+  }
+]
