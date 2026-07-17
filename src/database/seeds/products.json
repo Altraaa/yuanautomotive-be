@@ -28,6 +28,18 @@
     ]
   },
   {
+    "name": "Dashboard",
+    "sku": "YD-ACC-DASHBOARD",
+    "category": "Aksesoris",
+    "price": "100000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi produk dashboard (mis. Dashboard Cover / Dashboard Mat). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
     "name": "Glass Protector",
     "sku": "YD-ACC-GLASSPROT",
     "category": "Aksesoris",
@@ -51,6 +63,90 @@
     "specs": [
       { "label": "Posisi", "value": "Sun Visor" },
       { "label": "Material", "value": "ABS" }
+    ]
+  },
+  {
+    "name": "Center Console",
+    "sku": "YD-ACC-CENTERCONSOLE-1",
+    "category": "Aksesoris",
+    "price": "100000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Center Console (varian 1). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Center Console",
+    "sku": "YD-ACC-CENTERCONSOLE-2",
+    "category": "Aksesoris",
+    "price": "100000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Center Console (varian 2). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Car Key",
+    "sku": "YD-ACC-CARKEY",
+    "category": "Aksesoris",
+    "price": "75000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi produk Car Key (mis. Car Key Cover / Key Case). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Front Trunk",
+    "sku": "YD-ACC-FRONTTRUNK",
+    "category": "Aksesoris",
+    "price": "150000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Front Trunk (mis. Front Trunk Mat / Organizer untuk EV). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Smoke Window",
+    "sku": "YD-ACC-SMOKEWINDOW",
+    "category": "Aksesoris",
+    "price": "175000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Smoke Window (mis. Talang Air / Window Deflector). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Isi", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Rear Tailgate",
+    "sku": "YD-BDY-REARTAILGATE",
+    "category": "Body Part",
+    "price": "200000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Rear Tailgate (mis. Rear Tailgate Trim / Garnish). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
+    ]
+  },
+  {
+    "name": "Side Climbing",
+    "sku": "YD-ACC-SIDECLIMBING",
+    "category": "Aksesoris",
+    "price": "250000",
+    "badge": null,
+    "description": "TODO: lengkapi nama & deskripsi Side Climbing (mis. Side Step / Running Board). Placeholder sementara, silakan edit lewat admin.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Material", "value": "TODO" }
     ]
   },
   {
