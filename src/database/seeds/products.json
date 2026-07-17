@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Mudguard",
+    "sku": "YD-BDY-MUDGUARD",
+    "category": "Body Part",
+    "price": "150000",
+    "badge": null,
+    "description": "Mudguard (penahan lumpur) yang melindungi bodi dan kolong mobil dari cipratan air, lumpur, dan kerikil. Pemasangan presisi mengikuti lekuk fender.",
+    "compatibility": ["Wuling", "BYD", "Chery"],
+    "specs": [
+      { "label": "Material", "value": "PP Plastic" },
+      { "label": "Isi", "value": "4 pcs (Set)" },
+      { "label": "Garansi", "value": "1 Bulan" }
+    ]
+  },
+  {
+    "name": "Tailgate Gas Strut",
+    "sku": "YD-BDY-GASSTRUT",
+    "category": "Sparepart",
+    "price": "285000",
+    "badge": null,
+    "description": "Shock penahan pintu bagasi yang menjaga tailgate tetap terbuka stabil dan menutup halus, mengurangi beban angkat saat membuka bagasi.",
+    "compatibility": ["Wuling", "BYD", "Chery"],
+    "specs": [
+      { "label": "Posisi", "value": "Tailgate / Bagasi" },
+      { "label": "Isi", "value": "2 pcs (Kiri-Kanan)" },
+      { "label": "Garansi", "value": "1 Bulan" }
+    ]
+  },
+  {
+    "name": "Glass Protector",
+    "sku": "YD-ACC-GLASSPROT",
+    "category": "Aksesoris",
+    "price": "125000",
+    "badge": null,
+    "description": "Pelindung kaca yang menahan goresan halus dan membantu air cepat mengalir saat hujan, menjaga visibilitas tetap jernih.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Tipe", "value": "Coating / Film" },
+      { "label": "Garansi", "value": "2 Minggu" }
+    ]
+  },
+  {
+    "name": "Car Glasses Holder",
+    "sku": "YD-ACC-GLASSHOLD",
+    "category": "Aksesoris",
+    "price": "45000",
+    "badge": null,
+    "description": "Penjepit kacamata yang dipasang pada sun visor, menjaga kacamata tetap aman dan mudah dijangkau saat berkendara.",
+    "compatibility": ["Universal"],
+    "specs": [
+      { "label": "Posisi", "value": "Sun Visor" },
+      { "label": "Material", "value": "ABS" }
+    ]
+  },
+  {
+    "name": "Foot Pedal",
+    "sku": "YD-ACC-FOOTPEDAL",
+    "category": "Aksesoris",
+    "price": "175000",
+    "badge": null,
+    "description": "Cover pedal anti-slip yang memberi pijakan lebih mantap sekaligus mempercantik tampilan area kaki pengemudi.",
+    "compatibility": ["Wuling", "BYD", "Chery"],
+    "specs": [
+      { "label": "Material", "value": "Aluminium Alloy" },
+      { "label": "Finishing", "value": "Anti-Slip" },
+      { "label": "Garansi", "value": "1 Bulan" }
+    ]
+  }
+]
