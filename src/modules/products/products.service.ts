@@ -234,7 +234,13 @@ export class ProductsService {
     dto: UpdateProductDto,
     authorUuid?: string,
   ): Promise<AdminProductDetail> {
-    const product = await this.getOrFail(uuid);
+    // Load WITHOUT relations: update() only reassigns scalar columns and the
+    // category_id / author_id foreign keys. If the row were fetched WITH its
+    // `category` / `author` relations, TypeORM would let those stale relation
+    // objects win over the FK changes on save and silently write the OLD ids
+    // back — that was the "category won't update on edit" bug (create() worked
+    // because a fresh entity has no loaded relation to conflict with).
+    const product = await this.getOrFail(uuid, false);
 
     if (dto.category_id) {
       const category = await this.categories.getEntityByUuid(dto.category_id);
@@ -295,10 +301,14 @@ export class ProductsService {
   }
 
   // ── helpers ───────────────────────────────────────
-  private async getOrFail(uuid: string): Promise<Product> {
+  private async getOrFail(uuid: string, withRelations = true): Promise<Product> {
     const product = await this.repo.findOne({
       where: { uuid },
-      relations: { category: true, images: true, author: true },
+      // update() passes false so reassigned FKs (category_id/author_id) aren't
+      // overridden by stale loaded relation objects on save.
+      relations: withRelations
+        ? { category: true, images: true, author: true }
+        : undefined,
     });
     if (!product) throw new NotFoundException('Product not found');
     return product;
