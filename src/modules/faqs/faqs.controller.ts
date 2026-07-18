@@ -23,6 +23,7 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../common/enums';
 import { OptionalJwtAuthGuard } from '../../common/guards/optional-jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
+import { applyContextLimit } from '../../common/dto/pagination-query.dto';
 import { CreateFaqDto, UpdateFaqDto } from './dto/faq.dto';
 import { FaqQueryDto } from './dto/faq-query.dto';
 import { FaqsService } from './faqs.service';
@@ -36,9 +37,15 @@ export class FaqsController {
   @Public()
   @UseGuards(OptionalJwtAuthGuard)
   @Get()
-  list(@Query() query: FaqQueryDto, @CurrentUser() user?: AuthenticatedUser) {
+  list(
+    @Query() query: FaqQueryDto,
+    @Query('limit') rawLimit: string | undefined,
+    @CurrentUser() user?: AuthenticatedUser,
+  ) {
     // Authenticated admins get manage-table rows (incl. unpublished); anonymous
-    // visitors get published items ordered by sort_order asc.
+    // visitors get published items ordered by sort_order asc. Page size defaults
+    // per context (admin 25 / public 10) unless FE sent ?limit=.
+    applyContextLimit(query, rawLimit, !!user);
     return user ? this.faqs.adminList(query) : this.faqs.listPublic(query);
   }
 

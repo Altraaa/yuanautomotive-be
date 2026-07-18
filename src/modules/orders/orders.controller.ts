@@ -19,6 +19,7 @@ import { Public } from '../../common/decorators/public.decorator';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../common/enums';
 import { RolesGuard } from '../../common/guards/roles.guard';
+import { applyContextLimit } from '../../common/dto/pagination-query.dto';
 import {
   CreateOrderDto,
   OrderQueryDto,
@@ -51,7 +52,12 @@ export class OrdersController {
   @UseGuards(RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
   @Get()
-  list(@Query() query: OrderQueryDto) {
+  list(
+    @Query() query: OrderQueryDto,
+    @Query('limit') rawLimit: string | undefined,
+  ) {
+    // Admin-only list → 25 rows/page unless FE sent an explicit ?limit=.
+    applyContextLimit(query, rawLimit, true);
     return this.orders.list(query);
   }
 

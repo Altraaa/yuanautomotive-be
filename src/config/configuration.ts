@@ -24,8 +24,8 @@ export default () => ({
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET as string,
     refreshSecret: process.env.JWT_REFRESH_SECRET as string,
-    accessTtl: process.env.JWT_ACCESS_TTL ?? '15m',
-    refreshTtl: process.env.JWT_REFRESH_TTL ?? '7d',
+    accessTtl: process.env.JWT_ACCESS_TTL ?? '1h',
+    refreshTtl: process.env.JWT_REFRESH_TTL ?? '30d',
   },
   media: {
     storage: process.env.MEDIA_STORAGE ?? 'local',

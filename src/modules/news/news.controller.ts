@@ -23,6 +23,7 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../common/enums';
 import { OptionalJwtAuthGuard } from '../../common/guards/optional-jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
+import { applyContextLimit } from '../../common/dto/pagination-query.dto';
 import { CreateNewsDto, UpdateNewsDto } from './dto/news.dto';
 import { NewsQueryDto } from './dto/news-query.dto';
 import { NewsService } from './news.service';
@@ -36,9 +37,15 @@ export class NewsController {
   @Public()
   @UseGuards(OptionalJwtAuthGuard)
   @Get()
-  list(@Query() query: NewsQueryDto, @CurrentUser() user?: AuthenticatedUser) {
+  list(
+    @Query() query: NewsQueryDto,
+    @Query('limit') rawLimit: string | undefined,
+    @CurrentUser() user?: AuthenticatedUser,
+  ) {
     // Authenticated admins get manage-table rows (incl. drafts); anonymous
-    // visitors get published cards ordered by published_at desc.
+    // visitors get published cards ordered by published_at desc. Page size
+    // defaults per context (admin 25 / public 10) unless FE sent ?limit=.
+    applyContextLimit(query, rawLimit, !!user);
     return user
       ? this.news.adminList(query)
       : this.news.listPublic(query);

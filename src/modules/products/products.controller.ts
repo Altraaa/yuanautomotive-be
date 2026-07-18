@@ -23,12 +23,9 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../common/enums';
 import { OptionalJwtAuthGuard } from '../../common/guards/optional-jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
+import { applyContextLimit } from '../../common/dto/pagination-query.dto';
 import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
-import {
-  ADMIN_PRODUCTS_PER_PAGE,
-  ProductQueryDto,
-  PUBLIC_PRODUCTS_PER_PAGE,
-} from './dto/product-query.dto';
+import { ProductQueryDto } from './dto/product-query.dto';
 import { ProductsService } from './products.service';
 
 @ApiTags('products')
@@ -47,10 +44,8 @@ export class ProductsController {
   ) {
     // Authenticated admins get the manage-table rows (incl. drafts); anonymous
     // visitors get published product cards. Page size defaults per context
-    // (admin 20 / public 10) unless the FE sent an explicit ?limit=.
-    if (rawLimit === undefined) {
-      query.limit = user ? ADMIN_PRODUCTS_PER_PAGE : PUBLIC_PRODUCTS_PER_PAGE;
-    }
+    // (admin 25 / public 10) unless the FE sent an explicit ?limit=.
+    applyContextLimit(query, rawLimit, !!user);
     return user
       ? this.products.adminList(query)
       : this.products.listPublic(query);
