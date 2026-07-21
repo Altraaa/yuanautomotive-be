@@ -5,6 +5,7 @@ import { User } from '../../modules/users/entities/user.entity';
 import { Category } from '../../modules/categories/entities/category.entity';
 import { Product } from '../../modules/products/entities/product.entity';
 import { Faq } from '../../modules/faqs/entities/faq.entity';
+import { ProductFitment } from '../../modules/products/entities/product.entity';
 import { ProductBadge, UserRole } from '../../common/enums';
 import { toSlug, uniqueSlug } from '../../common/utils/slug.util';
 import faqSeed from './faqs.json';
@@ -22,8 +23,7 @@ interface SeedFaq {
 const SEED_FAQS: SeedFaq[] = faqSeed as SeedFaq[];
 
 /** Seed catalogue row — no images (admin uploads them later). `compatibility`
- *  is stored as brand-only strings; loaded into the new { brand, model } shape
- *  (model unknown = "") which the FE renders as brand-only (see SPEC §5). */
+ *  is the structured { brand, model, years? } vehicle-fitment shape. */
 interface SeedProduct {
   name: string;
   sku: string;
@@ -31,15 +31,11 @@ interface SeedProduct {
   price: string;
   badge?: ProductBadge | null;
   description: string;
-  compatibility: string[];
+  compatibility: ProductFitment[];
   specs: { label: string; value: string }[];
 }
 
 const SEED_PRODUCTS: SeedProduct[] = productSeed as SeedProduct[];
-
-/** Legacy brand string → structured fitment ({ brand, model: "" }). */
-const toFitments = (list: string[]) =>
-  list.map((brand) => ({ brand, model: '' }));
 
 dotenv.config();
 
@@ -134,7 +130,7 @@ async function run() {
         price: p.price,
         badge: p.badge ?? null,
         description: p.description,
-        compatibility: toFitments(p.compatibility),
+        compatibility: p.compatibility,
         specs: p.specs.map((s, i) => ({ ...s, sort_order: i })),
         category_id: category.id,
         author_id: admin?.id ?? null,

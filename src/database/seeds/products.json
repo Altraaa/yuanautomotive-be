@@ -1,220 +1,362 @@
 [
   {
-    "name": "Clutch Disc",
-    "sku": "YD-CLT-DISC",
-    "category": "Sparepart",
-    "price": "320000",
+    "name": "Side Tent",
+    "sku": "YDA-SIDE-TENT",
+    "category": "Aksesoris",
+    "price": "200000",
     "badge": null,
-    "description": "Plat kopling dengan kampas tahan panas untuk transfer tenaga yang halus dan usia pakai panjang.",
-    "compatibility": ["Suzuki", "Daihatsu", "Toyota"],
+    "description": "Tenda samping yang dipasang pada roof rack untuk memberi area teduh saat camping atau berkemah, praktis dibuka-tutup dan tahan cuaca.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Diameter", "value": "200 mm" },
-      { "label": "Jumlah Gigi", "value": "21T" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Material",
+        "value": "Oxford Fabric"
+      },
+      {
+        "label": "Pemasangan",
+        "value": "Roof Rack"
+      }
     ]
   },
   {
-    "name": "Rear Brake Pads",
-    "sku": "YD-BRK-PAD-R",
-    "category": "Sparepart",
+    "name": "Center Console Protective Film",
+    "sku": "YD-ACC-CENTERCONSOLEPROTECTIVEFILM",
+    "category": "Aksesoris",
+    "price": "200000",
+    "badge": null,
+    "description": "Pelindung film transparan untuk area center console yang mencegah goresan halus, jejak sidik jari, dan kusam akibat pemakaian harian.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Tipe",
+        "value": "TPU Film"
+      },
+      {
+        "label": "Finishing",
+        "value": "Anti-Gores"
+      }
+    ]
+  },
+  {
+    "name": "Side Climbing Ladder",
+    "sku": "YD-ACC-SIDECLIMBING",
+    "category": "Body Part",
+    "price": "250000",
+    "badge": null,
+    "description": "Tangga pijakan samping yang memudahkan akses ke roof rack atau bagasi atas, kokoh menahan beban dengan permukaan anti-slip.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Aluminium Alloy"
+      },
+      {
+        "label": "Finishing",
+        "value": "Anti-Slip"
+      }
+    ]
+  },
+  {
+    "name": "Rear Tailgate Storage Box",
+    "sku": "YD-BDY-REARTAILGATE",
+    "category": "Body Part",
+    "price": "200000",
+    "badge": null,
+    "description": "Kotak penyimpanan tambahan pada area tailgate belakang untuk merapikan perlengkapan darurat dan barang bawaan.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Material",
+        "value": "ABS Plastic"
+      },
+      {
+        "label": "Posisi",
+        "value": "Tailgate / Bagasi"
+      }
+    ]
+  },
+  {
+    "name": "Smoke Window Visor Set",
+    "sku": "YD-ACC-SMOKEWINDOW",
+    "category": "Aksesoris",
     "price": "175000",
     "badge": null,
-    "description": "Kampas rem belakang dengan daya cengkeram stabil dan produksi debu rendah untuk pengereman yang aman.",
-    "compatibility": ["Toyota", "Daihatsu", "Honda"],
+    "description": "Talang air jendela warna smoke yang menahan cipratan hujan agar kaca dapat sedikit dibuka tanpa air masuk, sekaligus mempercantik tampilan.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Belakang" },
-      { "label": "Material", "value": "Semi-metallic" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Isi",
+        "value": "4 pcs (Set)"
+      },
+      {
+        "label": "Warna",
+        "value": "Smoke"
+      }
     ]
   },
   {
-    "name": "Front Shock Absorber",
-    "sku": "YD-SHK-F",
-    "category": "Sparepart",
-    "price": "365000",
+    "name": "Front Trunk Organizer",
+    "sku": "YD-ACC-FRONTTRUNK",
+    "category": "Aksesoris",
+    "price": "150000",
     "badge": null,
-    "description": "Peredam kejut depan dengan respons redaman presisi untuk handling stabil dan kenyamanan berkendara.",
-    "compatibility": ["Toyota", "Daihatsu", "Suzuki"],
+    "description": "Organizer bagasi depan (frunk) untuk mobil listrik yang merapikan kabel pengisi daya dan perlengkapan agar tidak berantakan.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Depan" },
-      { "label": "Tipe", "value": "Oil (Twin-tube)" },
-      { "label": "Garansi", "value": "3 Bulan" }
+      {
+        "label": "Material",
+        "value": "Non-woven Fabric"
+      },
+      {
+        "label": "Tipe",
+        "value": "Lipat (Foldable)"
+      }
     ]
   },
   {
-    "name": "Oil Filter LZWL",
-    "sku": "YD-FLT-OIL-LZWL",
-    "category": "Sparepart",
-    "price": "48000",
-    "badge": "TERLARIS",
-    "description": "Filter oli mesin dengan media saring rapat dan katup by-pass, menjaga sirkulasi oli tetap bersih.",
-    "compatibility": ["Toyota", "Daihatsu", "Suzuki"],
-    "specs": [
-      { "label": "Tipe", "value": "Spin-on" },
-      { "label": "Garansi", "value": "2 Minggu" }
-    ]
-  },
-  {
-    "name": "Element Air Filter",
-    "sku": "YD-FLT-AIR",
-    "category": "Sparepart",
-    "price": "55000",
+    "name": "Car Key Accessories",
+    "sku": "YD-ACC-CARKEY",
+    "category": "Aksesoris",
+    "price": "75000",
     "badge": null,
-    "description": "Elemen saringan udara mesin yang menjaga aliran udara optimal dan melindungi ruang bakar dari kotoran.",
-    "compatibility": ["Toyota", "Daihatsu", "Honda", "Suzuki"],
+    "description": "Aksesori pelindung kunci mobil yang melindungi remote dari benturan dan goresan sekaligus mempercantik tampilan.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "Dry Paper Element" },
-      { "label": "Garansi", "value": "2 Minggu" }
+      {
+        "label": "Material",
+        "value": "TPU / Silikon"
+      },
+      {
+        "label": "Tipe",
+        "value": "Key Cover"
+      }
     ]
   },
   {
-    "name": "Rear Shock Absorber",
-    "sku": "YD-SHK-R",
-    "category": "Sparepart",
-    "price": "385000",
+    "name": "Center Console Organizer Tray",
+    "sku": "YD-ACC-CENTERCONSOLEORGANIZERTRAY",
+    "category": "Aksesoris",
+    "price": "100000",
     "badge": null,
-    "description": "Peredam kejut belakang dengan redaman oli yang stabil untuk kenyamanan berkendara di segala kondisi jalan.",
-    "compatibility": ["Toyota", "Daihatsu", "Suzuki"],
+    "description": "Tray organizer untuk laci center console yang membagi ruang penyimpanan agar barang kecil tersusun rapi dan mudah dijangkau.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Belakang" },
-      { "label": "Tipe", "value": "Oil (Twin-tube)" },
-      { "label": "Garansi", "value": "3 Bulan" }
+      {
+        "label": "Material",
+        "value": "ABS Plastic"
+      },
+      {
+        "label": "Tipe",
+        "value": "Insert Tray"
+      }
     ]
   },
   {
-    "name": "Tie Rod",
-    "sku": "YD-STR-TIEROD",
-    "category": "Sparepart",
-    "price": "215000",
+    "name": "Dashboard Storage Box",
+    "sku": "YD-ACC-DASHBOARDSTORAGEBOX",
+    "category": "Aksesoris",
+    "price": "100000",
     "badge": null,
-    "description": "Tie rod kemudi original dengan ball joint presisi untuk kendali setir akurat dan keausan ban lebih merata.",
-    "compatibility": ["Toyota", "Daihatsu", "Suzuki"],
+    "description": "Kotak penyimpanan tambahan pada dashboard untuk menyimpan barang kecil seperti kartu, kacamata, atau ponsel agar tetap rapi.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "Original Equipment" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Material",
+        "value": "ABS Plastic"
+      },
+      {
+        "label": "Pemasangan",
+        "value": "Tempel (3M)"
+      }
     ]
   },
   {
-    "name": "Fan Belt",
-    "sku": "YD-BLT-FAN",
-    "category": "Sparepart",
-    "price": "95000",
-    "badge": "HOT",
-    "description": "V-belt karet penggerak alternator dan pompa air, tahan retak dan meredam bunyi decit saat mesin dingin.",
-    "compatibility": ["Toyota", "Honda", "Mitsubishi", "Suzuki"],
-    "specs": [
-      { "label": "Profil", "value": "V-Ribbed" },
-      { "label": "Garansi", "value": "1 Bulan" }
-    ]
-  },
-  {
-    "name": "Spark Plug",
-    "sku": "YD-IGN-PLUG",
-    "category": "Sparepart",
-    "price": "42000",
-    "badge": "HOT",
-    "description": "Busi pengapian dengan elektroda tahan panas untuk percikan api stabil, mesin mudah start dan irit bahan bakar.",
-    "compatibility": ["Toyota", "Honda", "Suzuki", "Mitsubishi"],
-    "specs": [
-      { "label": "Tipe Elektroda", "value": "Nickel" },
-      { "label": "Gap", "value": "0.8 mm" },
-      { "label": "Garansi", "value": "2 Minggu" }
-    ]
-  },
-  {
-    "name": "Clutch Pressure Plate",
-    "sku": "YD-CLT-PLATE",
-    "category": "Sparepart",
-    "price": "410000",
+    "name": "Car Mounted Glasses Case",
+    "sku": "YD-ACC-CARMOUNTEDGLASSESCASE",
+    "category": "Aksesoris",
+    "price": "75000",
     "badge": null,
-    "description": "Matahari kopling (dekrup) dengan pegas diafragma presisi untuk cengkeraman kuat dan pedal ringan.",
-    "compatibility": ["Suzuki", "Daihatsu", "Toyota"],
+    "description": "Tempat kacamata yang dipasang di kabin mobil, menjaga kacamata tetap aman, rapi, dan mudah dijangkau saat berkendara.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Diameter", "value": "200 mm" },
-      { "label": "Tipe Pegas", "value": "Diafragma" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Material",
+        "value": "ABS"
+      },
+      {
+        "label": "Posisi",
+        "value": "Sun Visor / Dashboard"
+      }
     ]
   },
   {
-    "name": "Cabin Air Filter",
-    "sku": "YD-FLT-CAB",
-    "category": "Sparepart",
+    "name": "Roof Platform",
+    "sku": "YD-ACC-ROOFPLATFORM",
+    "category": "Aksesoris",
+    "price": "350000",
+    "badge": null,
+    "description": "Rak platform atap serbaguna untuk menambah kapasitas angkut barang di bagian atap, kuat menahan beban ekstra saat perjalanan jauh.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Aluminium Alloy"
+      },
+      {
+        "label": "Beban Maks",
+        "value": "75 kg"
+      }
+    ]
+  },
+  {
+    "name": "Cup Holder",
+    "sku": "YD-ACC-CUPHOLDER",
+    "category": "Aksesoris",
     "price": "65000",
-    "badge": "BARU",
-    "description": "Filter kabin AC yang menyaring debu dan polutan agar udara di dalam kabin tetap bersih dan segar.",
-    "compatibility": ["Toyota", "Honda", "Mitsubishi"],
-    "specs": [
-      { "label": "Tipe", "value": "Activated Carbon" },
-      { "label": "Garansi", "value": "2 Minggu" }
-    ]
-  },
-  {
-    "name": "Petrol Filter",
-    "sku": "YD-FLT-PTRL",
-    "category": "Sparepart",
-    "price": "72000",
     "badge": null,
-    "description": "Saringan bahan bakar yang menahan kotoran dan air agar suplai bensin ke mesin tetap bersih dan lancar.",
-    "compatibility": ["Toyota", "Honda", "Mitsubishi"],
+    "description": "Dudukan gelas tambahan yang menjaga botol atau cup minuman tetap stabil dan tidak tumpah selama berkendara.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "In-line" },
-      { "label": "Garansi", "value": "2 Minggu" }
+      {
+        "label": "Material",
+        "value": "ABS Plastic"
+      },
+      {
+        "label": "Tipe",
+        "value": "Universal Clip"
+      }
     ]
   },
   {
-    "name": "Front Hub Bearing",
-    "sku": "YD-BRG-HUB-F",
-    "category": "Sparepart",
-    "price": "275000",
+    "name": "Behind The Screen",
+    "sku": "YD-ACC-BEHINDSCREEN",
+    "category": "Aksesoris",
+    "price": "100000",
     "badge": null,
-    "description": "Bearing roda depan dengan pelumasan tahan lama untuk putaran roda halus dan bebas bunyi dengung.",
-    "compatibility": ["Toyota", "Daihatsu", "Suzuki"],
+    "description": "Rak penyimpanan yang dipasang di belakang layar head unit untuk menaruh kartu, ponsel, atau barang kecil agar kabin lebih rapi.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Depan" },
-      { "label": "Tipe", "value": "Double Row" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Material",
+        "value": "ABS Plastic"
+      },
+      {
+        "label": "Pemasangan",
+        "value": "Tempel (3M)"
+      }
     ]
   },
   {
-    "name": "Front Brake Disc",
-    "sku": "YD-BRK-DISC-F",
-    "category": "Sparepart",
-    "price": "540000",
-    "badge": null,
-    "description": "Piringan cakram rem depan dengan permukaan presisi, pelepasan panas baik dan minim getaran saat mengerem.",
-    "compatibility": ["Toyota", "Daihatsu", "Honda"],
-    "specs": [
-      { "label": "Posisi", "value": "Depan" },
-      { "label": "Diameter", "value": "255 mm" },
-      { "label": "Garansi", "value": "1 Bulan" }
-    ]
-  },
-  {
-    "name": "Brake Pads",
-    "sku": "YD-BRK-PAD-F",
+    "name": "Clutch Release Bearing",
+    "sku": "YD-CLT-RELEASE-BEARING",
     "category": "Sparepart",
     "price": "185000",
-    "badge": "TERLARIS",
-    "description": "Kampas rem depan dengan material semi-metallic, pakem dan minim bunyi untuk pengereman harian yang stabil.",
-    "compatibility": ["Toyota", "Daihatsu", "Honda"],
-    "specs": [
-      { "label": "Posisi", "value": "Depan" },
-      { "label": "Material", "value": "Semi-metallic" },
-      { "label": "Garansi", "value": "1 Bulan" }
-    ]
-  },
-  {
-    "name": "Light Bulb",
-    "sku": "YD-ACC-BULB",
-    "category": "Aksesoris",
-    "price": "35000",
     "badge": null,
-    "description": "Bohlam lampu halogen terang dengan pancaran merata, cocok untuk lampu utama maupun lampu senja.",
-    "compatibility": ["Universal"],
+    "description": "Release bearing kopling yang meneruskan tekanan pedal ke matahari kopling dengan halus, mengurangi bunyi dan getaran saat kopling diinjak.",
+    "compatibility": [
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Tipe Soket", "value": "H4" },
-      { "label": "Daya", "value": "55W / 60W" },
-      { "label": "Tegangan", "value": "12V" }
+      {
+        "label": "Tipe",
+        "value": "Self-aligning"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
@@ -224,220 +366,637 @@
     "price": "155000",
     "badge": null,
     "description": "Bearing pembebas kopling (drek lahar) yang halus saat pedal ditekan, mengurangi bunyi dan getaran.",
-    "compatibility": ["Suzuki", "Daihatsu", "Toyota"],
+    "compatibility": [
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "Self-aligning" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Tipe",
+        "value": "Self-aligning"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Clutch Release",
-    "sku": "YD-CLT-RELEASE",
+    "name": "Light Bulb",
+    "sku": "YD-ACC-BULB",
+    "category": "Aksesoris",
+    "price": "35000",
+    "badge": null,
+    "description": "Bohlam lampu halogen terang dengan pancaran merata, cocok untuk lampu utama maupun lampu senja.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Tipe Soket",
+        "value": "H4"
+      },
+      {
+        "label": "Daya",
+        "value": "55W / 60W"
+      },
+      {
+        "label": "Tegangan",
+        "value": "12V"
+      }
+    ]
+  },
+  {
+    "name": "Brake Pads",
+    "sku": "YD-BRK-PAD-F",
     "category": "Sparepart",
     "price": "185000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Clutch Release (mis. Clutch Release Cylinder). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "badge": "TERLARIS",
+    "description": "Kampas rem depan dengan material semi-metallic, pakem dan minim bunyi untuk pengereman harian yang stabil.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "TODO" }
+      {
+        "label": "Posisi",
+        "value": "Depan"
+      },
+      {
+        "label": "Material",
+        "value": "Semi-metallic"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Behind The Screen",
-    "sku": "YD-ACC-BEHINDSCREEN",
-    "category": "Aksesoris",
-    "price": "100000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Behind The Screen. Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
-    "specs": [
-      { "label": "Material", "value": "TODO" }
-    ]
-  },
-  {
-    "name": "Cup Holder",
-    "sku": "YD-ACC-CUPHOLDER",
-    "category": "Aksesoris",
-    "price": "65000",
-    "badge": null,
-    "description": "TODO: lengkapi deskripsi Cup Holder. Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
-    "specs": [
-      { "label": "Material", "value": "TODO" }
-    ]
-  },
-  {
-    "name": "Roof Platform",
-    "sku": "YD-ACC-ROOFPLATFORM",
-    "category": "Aksesoris",
-    "price": "350000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Roof Platform (mis. Roof Rack / Roof Basket). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
-    "specs": [
-      { "label": "Material", "value": "TODO" }
-    ]
-  },
-  {
-    "name": "Car Mounted",
-    "sku": "YD-ACC-CARMOUNTED",
-    "category": "Aksesoris",
-    "price": "75000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Car Mounted (mis. Car Mounted Phone Holder). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
-    "specs": [
-      { "label": "Material", "value": "TODO" }
-    ]
-  },
-  {
-    "name": "Mudguard",
-    "sku": "YD-BDY-MUDGUARD",
-    "category": "Body Part",
-    "price": "150000",
-    "badge": null,
-    "description": "Mudguard (penahan lumpur) yang melindungi bodi dan kolong mobil dari cipratan air, lumpur, dan kerikil. Pemasangan presisi mengikuti lekuk fender.",
-    "compatibility": ["Wuling", "BYD", "Chery"],
-    "specs": [
-      { "label": "Material", "value": "PP Plastic" },
-      { "label": "Isi", "value": "4 pcs (Set)" },
-      { "label": "Garansi", "value": "1 Bulan" }
-    ]
-  },
-  {
-    "name": "Tailgate Gas Strut",
-    "sku": "YD-BDY-GASSTRUT",
+    "name": "Front Brake Disc",
+    "sku": "YD-BRK-DISC-F",
     "category": "Sparepart",
-    "price": "285000",
+    "price": "540000",
     "badge": null,
-    "description": "Shock penahan pintu bagasi yang menjaga tailgate tetap terbuka stabil dan menutup halus, mengurangi beban angkat saat membuka bagasi.",
-    "compatibility": ["Wuling", "BYD", "Chery"],
+    "description": "Piringan cakram rem depan dengan permukaan presisi, pelepasan panas baik dan minim getaran saat mengerem.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Tailgate / Bagasi" },
-      { "label": "Isi", "value": "2 pcs (Kiri-Kanan)" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Posisi",
+        "value": "Depan"
+      },
+      {
+        "label": "Diameter",
+        "value": "255 mm"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Dashboard",
-    "sku": "YD-ACC-DASHBOARD",
-    "category": "Aksesoris",
-    "price": "100000",
+    "name": "Front Hub Bearing",
+    "sku": "YD-BRG-HUB-F",
+    "category": "Sparepart",
+    "price": "275000",
     "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi produk dashboard (mis. Dashboard Cover / Dashboard Mat). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "description": "Bearing roda depan dengan pelumasan tahan lama untuk putaran roda halus dan bebas bunyi dengung.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Posisi",
+        "value": "Depan"
+      },
+      {
+        "label": "Tipe",
+        "value": "Double Row"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Glass Protector",
-    "sku": "YD-ACC-GLASSPROT",
-    "category": "Aksesoris",
-    "price": "125000",
+    "name": "Petrol Filter",
+    "sku": "YD-FLT-PTRL",
+    "category": "Sparepart",
+    "price": "72000",
     "badge": null,
-    "description": "Pelindung kaca yang menahan goresan halus dan membantu air cepat mengalir saat hujan, menjaga visibilitas tetap jernih.",
-    "compatibility": ["Universal"],
+    "description": "Saringan bahan bakar yang menahan kotoran dan air agar suplai bensin ke mesin tetap bersih dan lancar.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Xpander",
+        "years": "2018–2024"
+      }
+    ],
     "specs": [
-      { "label": "Tipe", "value": "Coating / Film" },
-      { "label": "Garansi", "value": "2 Minggu" }
+      {
+        "label": "Tipe",
+        "value": "In-line"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
     ]
   },
   {
-    "name": "Car Glasses Holder",
-    "sku": "YD-ACC-GLASSHOLD",
-    "category": "Aksesoris",
-    "price": "45000",
-    "badge": null,
-    "description": "Penjepit kacamata yang dipasang pada sun visor, menjaga kacamata tetap aman dan mudah dijangkau saat berkendara.",
-    "compatibility": ["Universal"],
+    "name": "Cabin Air Filter",
+    "sku": "YD-FLT-CAB",
+    "category": "Sparepart",
+    "price": "65000",
+    "badge": "BARU",
+    "description": "Filter kabin AC yang menyaring debu dan polutan agar udara di dalam kabin tetap bersih dan segar.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Xpander",
+        "years": "2018–2024"
+      }
+    ],
     "specs": [
-      { "label": "Posisi", "value": "Sun Visor" },
-      { "label": "Material", "value": "ABS" }
+      {
+        "label": "Tipe",
+        "value": "Activated Carbon"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
     ]
   },
   {
-    "name": "Center Console",
-    "sku": "YD-ACC-CENTERCONSOLE-1",
-    "category": "Aksesoris",
-    "price": "100000",
+    "name": "Clutch Pressure Plate",
+    "sku": "YD-CLT-PLATE",
+    "category": "Sparepart",
+    "price": "410000",
     "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Center Console (varian 1). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "description": "Matahari kopling (dekrup) dengan pegas diafragma presisi untuk cengkeraman kuat dan pedal ringan.",
+    "compatibility": [
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Diameter",
+        "value": "200 mm"
+      },
+      {
+        "label": "Tipe Pegas",
+        "value": "Diafragma"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Center Console",
-    "sku": "YD-ACC-CENTERCONSOLE-2",
-    "category": "Aksesoris",
-    "price": "100000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Center Console (varian 2). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "name": "Spark Plug",
+    "sku": "YD-IGN-PLUG",
+    "category": "Sparepart",
+    "price": "42000",
+    "badge": "HOT",
+    "description": "Busi pengapian dengan elektroda tahan panas untuk percikan api stabil, mesin mudah start dan irit bahan bakar.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Xpander",
+        "years": "2018–2024"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Tipe Elektroda",
+        "value": "Nickel"
+      },
+      {
+        "label": "Gap",
+        "value": "0.8 mm"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
     ]
   },
   {
-    "name": "Car Key",
-    "sku": "YD-ACC-CARKEY",
-    "category": "Aksesoris",
-    "price": "75000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi produk Car Key (mis. Car Key Cover / Key Case). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "name": "Fan Belt",
+    "sku": "YD-BLT-FAN",
+    "category": "Sparepart",
+    "price": "95000",
+    "badge": "HOT",
+    "description": "V-belt karet penggerak alternator dan pompa air, tahan retak dan meredam bunyi decit saat mesin dingin.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Xpander",
+        "years": "2018–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Profil",
+        "value": "V-Ribbed"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Front Trunk",
-    "sku": "YD-ACC-FRONTTRUNK",
-    "category": "Aksesoris",
-    "price": "150000",
+    "name": "Tie Rod",
+    "sku": "YD-STR-TIEROD",
+    "category": "Sparepart",
+    "price": "215000",
     "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Front Trunk (mis. Front Trunk Mat / Organizer untuk EV). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "description": "Tie rod kemudi original dengan ball joint presisi untuk kendali setir akurat dan keausan ban lebih merata.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Tipe",
+        "value": "Original Equipment"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Smoke Window",
-    "sku": "YD-ACC-SMOKEWINDOW",
-    "category": "Aksesoris",
+    "name": "Rear Shock Absorber",
+    "sku": "YD-SHK-R",
+    "category": "Sparepart",
+    "price": "385000",
+    "badge": null,
+    "description": "Peredam kejut belakang dengan redaman oli yang stabil untuk kenyamanan berkendara di segala kondisi jalan.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Posisi",
+        "value": "Belakang"
+      },
+      {
+        "label": "Tipe",
+        "value": "Oil (Twin-tube)"
+      },
+      {
+        "label": "Garansi",
+        "value": "3 Bulan"
+      }
+    ]
+  },
+  {
+    "name": "Element Air Filter",
+    "sku": "YD-FLT-AIR",
+    "category": "Sparepart",
+    "price": "55000",
+    "badge": null,
+    "description": "Elemen saringan udara mesin yang menjaga aliran udara optimal dan melindungi ruang bakar dari kotoran.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Tipe",
+        "value": "Dry Paper Element"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
+    ]
+  },
+  {
+    "name": "Oil Filter LZWL",
+    "sku": "YD-FLT-OIL-LZWL",
+    "category": "Sparepart",
+    "price": "48000",
+    "badge": "TERLARIS",
+    "description": "Filter oli mesin dengan media saring rapat dan katup by-pass, menjaga sirkulasi oli tetap bersih.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Tipe",
+        "value": "Spin-on"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
+    ]
+  },
+  {
+    "name": "Front Shock Absorber",
+    "sku": "YD-SHK-F",
+    "category": "Sparepart",
+    "price": "365000",
+    "badge": null,
+    "description": "Peredam kejut depan dengan respons redaman presisi untuk handling stabil dan kenyamanan berkendara.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Posisi",
+        "value": "Depan"
+      },
+      {
+        "label": "Tipe",
+        "value": "Oil (Twin-tube)"
+      },
+      {
+        "label": "Garansi",
+        "value": "3 Bulan"
+      }
+    ]
+  },
+  {
+    "name": "Rear Brake Pads",
+    "sku": "YD-BRK-PAD-R",
+    "category": "Sparepart",
     "price": "175000",
     "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Smoke Window (mis. Talang Air / Window Deflector). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "description": "Kampas rem belakang dengan daya cengkeram stabil dan produksi debu rendah untuk pengereman yang aman.",
+    "compatibility": [
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Honda",
+        "model": "Brio",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Isi", "value": "TODO" }
+      {
+        "label": "Posisi",
+        "value": "Belakang"
+      },
+      {
+        "label": "Material",
+        "value": "Semi-metallic"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
-    "name": "Rear Tailgate",
-    "sku": "YD-BDY-REARTAILGATE",
-    "category": "Body Part",
-    "price": "200000",
+    "name": "Clutch Disc",
+    "sku": "YD-CLT-DISC",
+    "category": "Sparepart",
+    "price": "320000",
     "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Rear Tailgate (mis. Rear Tailgate Trim / Garnish). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
+    "description": "Plat kopling dengan kampas tahan panas untuk transfer tenaga yang halus dan usia pakai panjang.",
+    "compatibility": [
+      {
+        "brand": "Suzuki",
+        "model": "Ertiga",
+        "years": "2018–2023"
+      },
+      {
+        "brand": "Daihatsu",
+        "model": "Xenia",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Avanza",
+        "years": "2019–2024"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "TODO" }
-    ]
-  },
-  {
-    "name": "Side Climbing",
-    "sku": "YD-ACC-SIDECLIMBING",
-    "category": "Aksesoris",
-    "price": "250000",
-    "badge": null,
-    "description": "TODO: lengkapi nama & deskripsi Side Climbing (mis. Side Step / Running Board). Placeholder sementara, silakan edit lewat admin.",
-    "compatibility": ["Universal"],
-    "specs": [
-      { "label": "Material", "value": "TODO" }
+      {
+        "label": "Diameter",
+        "value": "200 mm"
+      },
+      {
+        "label": "Jumlah Gigi",
+        "value": "21T"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   },
   {
@@ -447,11 +1006,164 @@
     "price": "175000",
     "badge": null,
     "description": "Cover pedal anti-slip yang memberi pijakan lebih mantap sekaligus mempercantik tampilan area kaki pengemudi.",
-    "compatibility": ["Wuling", "BYD", "Chery"],
+    "compatibility": [
+      {
+        "brand": "Wuling",
+        "model": "Almaz",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "BYD",
+        "model": "Atto 3",
+        "years": "2023–2025"
+      },
+      {
+        "brand": "Chery",
+        "model": "Omoda 5",
+        "years": "2023–2025"
+      }
+    ],
     "specs": [
-      { "label": "Material", "value": "Aluminium Alloy" },
-      { "label": "Finishing", "value": "Anti-Slip" },
-      { "label": "Garansi", "value": "1 Bulan" }
+      {
+        "label": "Material",
+        "value": "Aluminium Alloy"
+      },
+      {
+        "label": "Finishing",
+        "value": "Anti-Slip"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
+    ]
+  },
+  {
+    "name": "Car Glasses Holder",
+    "sku": "YD-ACC-GLASSHOLD",
+    "category": "Aksesoris",
+    "price": "45000",
+    "badge": null,
+    "description": "Penjepit kacamata yang dipasang pada sun visor, menjaga kacamata tetap aman dan mudah dijangkau saat berkendara.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Posisi",
+        "value": "Sun Visor"
+      },
+      {
+        "label": "Material",
+        "value": "ABS"
+      }
+    ]
+  },
+  {
+    "name": "Glass Protector",
+    "sku": "YD-ACC-GLASSPROT",
+    "category": "Aksesoris",
+    "price": "125000",
+    "badge": null,
+    "description": "Pelindung kaca yang menahan goresan halus dan membantu air cepat mengalir saat hujan, menjaga visibilitas tetap jernih.",
+    "compatibility": [
+      {
+        "brand": "Universal",
+        "model": "Semua Model",
+        "years": "Semua tahun"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Tipe",
+        "value": "Coating / Film"
+      },
+      {
+        "label": "Garansi",
+        "value": "2 Minggu"
+      }
+    ]
+  },
+  {
+    "name": "Tailgate Gas Strut",
+    "sku": "YD-BDY-GASSTRUT",
+    "category": "Sparepart",
+    "price": "285000",
+    "badge": null,
+    "description": "Shock penahan pintu bagasi yang menjaga tailgate tetap terbuka stabil dan menutup halus, mengurangi beban angkat saat membuka bagasi.",
+    "compatibility": [
+      {
+        "brand": "Wuling",
+        "model": "Almaz",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "BYD",
+        "model": "Atto 3",
+        "years": "2023–2025"
+      },
+      {
+        "brand": "Chery",
+        "model": "Omoda 5",
+        "years": "2023–2025"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Posisi",
+        "value": "Tailgate / Bagasi"
+      },
+      {
+        "label": "Isi",
+        "value": "2 pcs (Kiri-Kanan)"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
+    ]
+  },
+  {
+    "name": "Mudguard",
+    "sku": "YD-BDY-MUDGUARD",
+    "category": "Body Part",
+    "price": "150000",
+    "badge": null,
+    "description": "Mudguard (penahan lumpur) yang melindungi bodi dan kolong mobil dari cipratan air, lumpur, dan kerikil. Pemasangan presisi mengikuti lekuk fender.",
+    "compatibility": [
+      {
+        "brand": "Wuling",
+        "model": "Almaz",
+        "years": "2019–2024"
+      },
+      {
+        "brand": "BYD",
+        "model": "Atto 3",
+        "years": "2023–2025"
+      },
+      {
+        "brand": "Chery",
+        "model": "Omoda 5",
+        "years": "2023–2025"
+      }
+    ],
+    "specs": [
+      {
+        "label": "Material",
+        "value": "PP Plastic"
+      },
+      {
+        "label": "Isi",
+        "value": "4 pcs (Set)"
+      },
+      {
+        "label": "Garansi",
+        "value": "1 Bulan"
+      }
     ]
   }
 ]
