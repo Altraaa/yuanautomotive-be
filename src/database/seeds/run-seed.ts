@@ -107,7 +107,9 @@ async function run() {
   }
 
   for (const p of SEED_PRODUCTS) {
-    if (await productRepo.findOne({ where: { sku: p.sku } })) {
+    // `withDeleted` so a soft-deleted SKU counts as "already exists" — the seed
+    // never resurrects or overwrites a row an admin has archived.
+    if (await productRepo.findOne({ where: { sku: p.sku }, withDeleted: true })) {
       console.log(`• Product already exists: ${p.sku}`);
       continue;
     }
@@ -118,7 +120,11 @@ async function run() {
     }
     const slug = await uniqueSlug(
       p.name,
-      async (c) => (await productRepo.countBy({ slug: c })) > 0,
+      // `withDeleted` so slugs held by soft-deleted rows are still treated as
+      // taken — the MySQL unique index counts them, so skipping them here would
+      // otherwise produce a duplicate-key crash.
+      async (c) =>
+        (await productRepo.count({ where: { slug: c }, withDeleted: true })) > 0,
     );
     await productRepo.save(
       productRepo.create({
