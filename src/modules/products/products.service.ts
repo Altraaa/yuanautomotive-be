@@ -15,7 +15,7 @@ import { OrderItem } from '../orders/entities/order-item.entity';
 import { UsersService } from '../users/users.service';
 import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
 import { ProductQueryDto } from './dto/product-query.dto';
-import { Product } from './entities/product.entity';
+import { Product, ProductFitment } from './entities/product.entity';
 
 /** Maps the DB badge token to the exact FE JSON value (PRE_ORDER → PRE-ORDER). */
 function badgeToJson(badge: ProductBadge | null): string | null {
@@ -40,7 +40,7 @@ export interface ProductCard {
 export interface ProductDetail extends ProductCard {
   description: string;
   specs: { label: string; value: string }[];
-  compatibility: string[];
+  compatibility: ProductFitment[];
   gallery: string[];
 }
 
@@ -80,7 +80,7 @@ export interface AdminProductDetail {
   is_featured: boolean;
   description: string;
   specs: { label: string; value: string }[];
-  compatibility: string[];
+  compatibility: ProductFitment[];
   gallery: string[];
   /** Same images as `gallery`, but each carries its media uuid so the edit
    *  form can render deletable thumbnails and re-send the kept uuids on save. */
@@ -214,7 +214,7 @@ export class ProductsService {
       stock: dto.stock ?? 0,
       badge: dto.badge ?? null,
       description: dto.description,
-      compatibility: dto.compatibility,
+      compatibility: this.normalizeCompatibility(dto.compatibility),
       specs: this.normalizeSpecs(dto.specs),
       is_featured: dto.is_featured ?? false,
       is_published: dto.is_published ?? true,
@@ -270,8 +270,9 @@ export class ProductsService {
     if (dto.stock !== undefined) product.stock = dto.stock;
     if (dto.badge !== undefined) product.badge = dto.badge ?? null;
     if (dto.description !== undefined) product.description = dto.description;
+    // Absent ⇒ keep existing; [] ⇒ clear (same pattern as image_uuids).
     if (dto.compatibility !== undefined)
-      product.compatibility = dto.compatibility;
+      product.compatibility = this.normalizeCompatibility(dto.compatibility);
     if (dto.specs !== undefined) product.specs = this.normalizeSpecs(dto.specs);
     if (dto.is_featured !== undefined) product.is_featured = dto.is_featured;
     if (dto.is_published !== undefined) product.is_published = dto.is_published;
@@ -312,6 +313,25 @@ export class ProductsService {
     });
     if (!product) throw new NotFoundException('Product not found');
     return product;
+  }
+
+  /** Trim fields, drop rows missing brand or model, and omit empty `years`.
+   *  Input order is preserved — it's the admin's chosen display order. */
+  private normalizeCompatibility(
+    fitments: CreateProductDto['compatibility'] = [],
+  ): ProductFitment[] {
+    return fitments
+      .map((f) => ({
+        brand: f.brand?.trim() ?? '',
+        model: f.model?.trim() ?? '',
+        years: f.years?.trim() || undefined,
+      }))
+      .filter((f) => f.brand && f.model)
+      .map((f) =>
+        f.years
+          ? { brand: f.brand, model: f.model, years: f.years }
+          : { brand: f.brand, model: f.model },
+      );
   }
 
   private normalizeSpecs(specs: CreateProductDto['specs']) {

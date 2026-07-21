@@ -12,6 +12,15 @@ export interface ProductSpec {
   sort_order: number;
 }
 
+/** One structured vehicle-fitment row stored inside the `compatibility` JSON
+ *  column (no separate table). `brand`/`model` are required; `years` is a free
+ *  text range and is omitted when unknown. Array order is the admin's choice. */
+export interface ProductFitment {
+  brand: string;
+  model: string;
+  years?: string;
+}
+
 @Entity('products')
 export class Product extends SoftDeletableEntity {
   @Index('IDX_products_slug', { unique: true })
@@ -54,9 +63,10 @@ export class Product extends SoftDeletableEntity {
   @Column({ type: 'text' })
   description: string;
 
-  /** Dynamic compatibility list, e.g. ["Wuling","Hyundai"] — MySQL JSON, not JSONB. */
+  /** Structured vehicle fitment list ({ brand, model, years? }) — MySQL JSON,
+   *  not JSONB. Order preserved. See ProductFitment. */
   @Column({ type: 'json' })
-  compatibility: string[];
+  compatibility: ProductFitment[];
 
   /** Ordered key/value specs — MySQL JSON per CLAUDE.md (dynamic specs). */
   @Column({ type: 'json' })

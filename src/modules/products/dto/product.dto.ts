@@ -5,6 +5,7 @@ import {
   IsBoolean,
   IsEnum,
   IsInt,
+  IsNotEmpty,
   IsNumberString,
   IsOptional,
   IsString,
@@ -29,6 +30,11 @@ const digitsOnly = ({ value }: { value: unknown }): unknown => {
   return value;
 };
 
+/** Trim string inputs so blank/whitespace-only fitment fields fail validation
+ *  (or get dropped in the service) instead of being stored as-is. */
+const trim = ({ value }: { value: unknown }): unknown =>
+  typeof value === 'string' ? value.trim() : value;
+
 export class ProductSpecDto {
   @ApiProperty({ example: 'Daya Output' })
   @IsString()
@@ -47,6 +53,32 @@ export class ProductSpecDto {
   @IsInt()
   @Min(0)
   sort_order = 0;
+}
+
+export class VehicleFitmentDto {
+  @ApiProperty({ example: 'Wuling' })
+  @Transform(trim)
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(60)
+  brand: string;
+
+  @ApiProperty({ example: 'Air EV' })
+  @Transform(trim)
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(80)
+  model: string;
+
+  @ApiPropertyOptional({
+    example: '2022–2024',
+    description: 'Free-text year/range; omit or send null when unknown',
+  })
+  @IsOptional()
+  @Transform(trim)
+  @IsString()
+  @MaxLength(40)
+  years?: string;
 }
 
 export class CreateProductDto {
@@ -108,10 +140,17 @@ export class CreateProductDto {
   @MinLength(1)
   description: string;
 
-  @ApiProperty({ type: [String], example: ['Wuling', 'Hyundai'] })
+  @ApiPropertyOptional({
+    type: [VehicleFitmentDto],
+    description:
+      'Structured vehicle fitment. Order preserved. Absent on PATCH keeps ' +
+      'existing data; [] clears it. Create defaults to [].',
+  })
+  @IsOptional()
   @IsArray()
-  @IsString({ each: true })
-  compatibility: string[];
+  @ValidateNested({ each: true })
+  @Type(() => VehicleFitmentDto)
+  compatibility?: VehicleFitmentDto[];
 
   @ApiProperty({ type: [ProductSpecDto] })
   @IsArray()

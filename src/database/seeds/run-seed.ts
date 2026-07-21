@@ -21,7 +21,9 @@ interface SeedFaq {
 
 const SEED_FAQS: SeedFaq[] = faqSeed as SeedFaq[];
 
-/** Seed catalogue row — no images (admin uploads them later). */
+/** Seed catalogue row — no images (admin uploads them later). `compatibility`
+ *  is stored as brand-only strings; loaded into the new { brand, model } shape
+ *  (model unknown = "") which the FE renders as brand-only (see SPEC §5). */
 interface SeedProduct {
   name: string;
   sku: string;
@@ -34,6 +36,10 @@ interface SeedProduct {
 }
 
 const SEED_PRODUCTS: SeedProduct[] = productSeed as SeedProduct[];
+
+/** Legacy brand string → structured fitment ({ brand, model: "" }). */
+const toFitments = (list: string[]) =>
+  list.map((brand) => ({ brand, model: '' }));
 
 dotenv.config();
 
@@ -122,7 +128,7 @@ async function run() {
         price: p.price,
         badge: p.badge ?? null,
         description: p.description,
-        compatibility: p.compatibility,
+        compatibility: toFitments(p.compatibility),
         specs: p.specs.map((s, i) => ({ ...s, sort_order: i })),
         category_id: category.id,
         author_id: admin?.id ?? null,
