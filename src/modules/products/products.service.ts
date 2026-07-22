@@ -1,6 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository } from 'typeorm';
+import {
+  Between,
+  FindOperator,
+  FindOptionsOrder,
+  FindOptionsWhere,
+  In,
+  LessThanOrEqual,
+  MoreThanOrEqual,
+  Repository,
+} from 'typeorm';
 import { BulkDeleteDto } from '../../common/dto/bulk-delete.dto';
 import { ProductBadge } from '../../common/enums';
 import {
@@ -14,7 +23,7 @@ import { MediaService } from '../media/media.service';
 import { OrderItem } from '../orders/entities/order-item.entity';
 import { UsersService } from '../users/users.service';
 import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
-import { ProductQueryDto } from './dto/product-query.dto';
+import { ProductQueryDto, ProductSort } from './dto/product-query.dto';
 import { Product, ProductFitment } from './entities/product.entity';
 
 /** Maps the DB badge token to the exact FE JSON value (PRE_ORDER → PRE-ORDER). */
@@ -108,40 +117,21 @@ export class ProductsService {
 
   // ── PUBLIC ────────────────────────────────────────
   async listPublic(query: ProductQueryDto): Promise<Paginated<ProductCard>> {
-    const qb = this.repo
-      .createQueryBuilder('p')
-      .leftJoinAndSelect('p.category', 'category')
-      .leftJoinAndSelect('p.images', 'images')
-      .where('p.is_published = :pub', { pub: true });
-
-    if (query.category) {
-      qb.andWhere('(category.slug = :cat OR category.name = :cat)', {
-        cat: query.category,
-      });
-    }
-    if (query.price_min) {
-      qb.andWhere('p.price >= :min', { min: query.price_min });
-    }
-    if (query.price_max) {
-      qb.andWhere('p.price <= :max', { max: query.price_max });
-    }
-
-    switch (query.sort) {
-      case 'termurah':
-        qb.orderBy('p.price', 'ASC');
-        break;
-      case 'termahal':
-        qb.orderBy('p.price', 'DESC');
-        break;
-      default:
-        qb.orderBy('p.created_at', 'DESC');
-    }
-    qb.addOrderBy('images.sort_order', 'ASC');
-
-    const [rows, total] = await qb
-      .skip(query.skip)
-      .take(query.limit)
-      .getManyAndCount();
+    const [rows, total] = await this.repo.findAndCount({
+      where: this.buildPublicWhere(query),
+      relations: { category: true, images: true },
+      // Load `images` (a one-to-many) via a SEPARATE query, NOT a JOIN. Joining
+      // a to-many collection into a paginated list row-explodes the result set
+      // (one product → N image rows), which made getManyAndCount both miscount
+      // `total` and under-fill the page for small limits: limit=10 returned ~7
+      // products with total=7/17 depending on the page, and only looked correct
+      // at limit=100. `query` strategy keeps the count/pagination on distinct
+      // product rows. Images are re-sorted by sort_order in JS (sortedImages).
+      relationLoadStrategy: 'query',
+      order: this.buildSort(query.sort),
+      skip: query.skip,
+      take: query.limit,
+    });
 
     return buildPaginated(
       rows.map((p) => this.toCard(p)),
@@ -149,6 +139,45 @@ export class ProductsService {
       query.page,
       query.limit,
     );
+  }
+
+  /** Public list WHERE. Category may arrive as slug OR name → OR two branches.
+   *  Price bounds are inclusive. Returns a plain object when unfiltered. */
+  private buildPublicWhere(
+    query: ProductQueryDto,
+  ): FindOptionsWhere<Product> | FindOptionsWhere<Product>[] {
+    const where: FindOptionsWhere<Product> = { is_published: true };
+    const price = this.priceFilter(query);
+    if (price) where.price = price;
+
+    if (!query.category) return where;
+    return [
+      { ...where, category: { slug: query.category } },
+      { ...where, category: { name: query.category } },
+    ];
+  }
+
+  private priceFilter(
+    query: ProductQueryDto,
+  ): FindOperator<string> | undefined {
+    if (query.price_min && query.price_max)
+      return Between(query.price_min, query.price_max);
+    if (query.price_min) return MoreThanOrEqual(query.price_min);
+    if (query.price_max) return LessThanOrEqual(query.price_max);
+    return undefined;
+  }
+
+  /** `id` is a deterministic tiebreaker so pages don't overlap/skip rows when
+   *  the primary sort key ties (e.g. equal prices or same created_at second). */
+  private buildSort(sort: ProductSort): FindOptionsOrder<Product> {
+    switch (sort) {
+      case 'termurah':
+        return { price: 'ASC', id: 'DESC' };
+      case 'termahal':
+        return { price: 'DESC', id: 'DESC' };
+      default:
+        return { created_at: 'DESC', id: 'DESC' };
+    }
   }
 
   async detailBySlug(slug: string): Promise<ProductDetail> {
@@ -164,23 +193,25 @@ export class ProductsService {
 
   // ── ADMIN ─────────────────────────────────────────
   async adminList(query: ProductQueryDto): Promise<Paginated<AdminProductRow>> {
-    const qb = this.repo
-      .createQueryBuilder('p')
-      .leftJoinAndSelect('p.category', 'category')
-      .leftJoinAndSelect('p.images', 'images')
-      .orderBy('p.created_at', 'DESC')
-      .addOrderBy('images.sort_order', 'ASC');
+    // Category may arrive as slug OR name → OR two branches; empty ⇒ no filter.
+    const where: FindOptionsWhere<Product> | FindOptionsWhere<Product>[] =
+      query.category
+        ? [
+            { category: { slug: query.category } },
+            { category: { name: query.category } },
+          ]
+        : {};
 
-    if (query.category) {
-      qb.andWhere('(category.slug = :cat OR category.name = :cat)', {
-        cat: query.category,
-      });
-    }
-
-    const [rows, total] = await qb
-      .skip(query.skip)
-      .take(query.limit)
-      .getManyAndCount();
+    const [rows, total] = await this.repo.findAndCount({
+      where,
+      relations: { category: true, images: true },
+      // See listPublic(): load the `images` to-many via a separate query so the
+      // paginated count stays on distinct product rows (no JOIN row-explosion).
+      relationLoadStrategy: 'query',
+      order: { created_at: 'DESC', id: 'DESC' },
+      skip: query.skip,
+      take: query.limit,
+    });
 
     return buildPaginated(
       rows.map((p) => this.toAdminRow(p)),
